@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+         <!--  Partners inherited form -->
+        <record id="view_emergency_contact_info_form" model="ir.ui.view">
+            <field name="name">res.emergency.contact.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml"> 
+                <xpath expr="//page[@name='emergency_contact']" position="attributes">
+                    <attribute name="invisible">False</attribute>
+                </xpath>
+                <xpath expr="//page[@name='emergency_contact']" position="inside">
+                    <group name="grp_emergencon" string="Emergency Contact">
+                        <field name="econtact_ids" colspan="4" nolabel="1">	
+                            <form string="Emergency Contact" version="7.0">
+								<label for="name_e" class="oe_edit_only"/>
+                                <h1><field name="name_e" style="width: 70%%"/></h1>
+                                <group>
+									<field name="mobile_e"/>
+									<field name="phone_e"/>
+									<field name="email_e"/>
+								</group>
+								<label for="street_e" string="Address"/>
+								<field name="street_e" placeholder="Street..."/>
+                                <field name="street2_e"/>
+								<field name="city_e" placeholder="City" style="width: 40%%"/>
+								<field name="state_id_e" placeholder="State" style="width: 37%%"/>
+                                <field name="zip_e" placeholder="ZIP" style="width: 20%%"/>
+								<field name="country_id_e" placeholder="Country"/>
+                            </form>
+							<tree string="Emergency Contact">
+                                <field name="name_e"/>
+                                <field name="phone_e"/>
+                                <field name="mobile_e"/>
+                                <field name="email_e"/>
+                            </tree>
+                        </field>
+                      </group>
+                </xpath>
+            </field>
+       </record>
+   </data>
+</openerp>
