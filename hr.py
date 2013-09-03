@@ -29,13 +29,7 @@ class hr_employee(osv.osv):
         'econtact_ids': fields.one2many('emergency.contact', 'employee_id', 'Emergency Contact'),
     }
 
-    def copy(self, cr, uid, record_id, default=None, context=None):
-        if default is None:
-            default = {}
-
-        default['econtact_ids'] = []
-        return super(res_partner, self).copy(
-                cr, uid, record_id, default=default, context=context)
+    
 
 hr_employee()
 
